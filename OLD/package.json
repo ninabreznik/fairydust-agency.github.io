@@ -4,7 +4,7 @@
   "description": "business",
   "main": "index.js",
   "dependencies": {
-    "browserify": "^6.2.0"
+    "browserify": "^6.2.0",
     "google-spreadsheets": "git://github.com/fairydust-agency/node-google-spreadsheets.git"
   },
   "scripts": {
