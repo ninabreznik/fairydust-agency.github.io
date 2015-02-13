@@ -15,6 +15,21 @@
     <meta property="og:description" content="fairydust is a web agency incubator - we build apps" />
     <meta property="og:image" content="pic/issuing_an_asset.gif" />
 
+    <link rel="apple-touch-icon" sizes="57x57" href="logo/favicon/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="logo/favicon/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="logo/favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="logo/favicon/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="logo/favicon/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="logo/favicon/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="logo/favicon/apple-touch-icon-144x144.png">
+    <link rel="icon" type="image/png" href="logo/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="logo/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="logo/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="logo/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#b91d47">
+    <meta name="msapplication-TileImage" content="logo/favicon/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
     <script src="./fairydust/modernizr-2.6.2.min.js"></script>
 
   </head>
@@ -25,16 +40,17 @@
         <span class="show-mobile-menu">show-menu</span>
         <!-- site__menu -->
         <div class="site__menu">
-            <a href="#" class="site__menu__logo"><img src="./fairydust/menu-logo.png" width="221" height="80" alt=""></a>
+            <a href="#" class="site__menu__logo"><img src="./fairydust/menu-logo.png" width="140" height="200" alt=""></a>
             <!-- main-menu -->
             <nav class="main-menu">
               <a href="#about"><span>What we do</span></a>
               <a href="#download"><span>Projects</span></a>
               <a href="#recources"><span>Process</span></a>
               <a href="#contact"><span>Contact</span></a>
+              <a href="http://blog.fairydust.agency/" target="_blank"><span>Blog</span></a>
             </nav>
             <!-- /main-menu -->
-            <a href="guide.html" class="user-guide-btn">USER GUIDE</a>
+            <!-- <a class="user-guide-btn">AVAILABLE SOON</a> -->
         </div>
         <!-- /site__menu -->
 
@@ -50,9 +66,149 @@
                     <div>
 
                         <!-- logo -->
-                        <h1 class="logo">
+                        <h1 class="logo" style="visibility:hidden;">
                           FairyDust We are software consultancy, based in Berlin and we deliver high quality web apps in short timespans - and with style.
                         </h1>
+<div id="startpage">
+<canvas id="logoCanvas"></canvas>
+<script src="logo/proton-1.0.0.js"></script>
+<script src="logo/PxLoader.js"></script>
+<script src="logo/PxLoaderImage.js"></script>
+<script>
+  var proton;
+  var canvas;
+  var context;
+  var renderer;
+  var logoZone;
+  var emitter;
+  var imageDatas;
+  var rect, rect2;
+  var gravityBehaviour, randomBehaviour, gravityWellBehaviour;
+  var rootIndex = 1;
+
+  Main();
+  function Main() {
+    canvas = document.getElementById("logoCanvas");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    context = canvas.getContext('2d');
+
+    imageDatas = [];
+    rect = new Proton.Rectangle(
+      canvas.width-(canvas.width/1.5),
+      canvas.height-(canvas.height/1.2),
+      canvas.width,
+      canvas.height
+    );
+    rect2 = new Proton.Rectangle(0, 0, rect.width, canvas.height);
+    randomBehaviour = new Proton.RandomDrift(0, 0, 10.05);
+    var rectZone = new Proton.RectZone(0, rect2.y, rect2.width, rect2.height);
+    crossBehaviour = new Proton.CrossZone(rectZone, 'bound');
+    gravityWellBehaviour = new Proton.GravityWell({
+      x : canvas.width / 100,
+      y : canvas.height / 100
+    }, 110, 110);
+
+    document.querySelector('#logoCanvas').addEventListener('mousedown', mouseDownHandler, false);
+    loadImage();
+  }
+
+
+
+  function loadImage() {
+    logoZone = [];
+    var logo = [];
+    var loader = new PxLoader();
+    logo[0] = loader.addImage('logo/logo2.png');
+    logo[1] = loader.addImage('logo/logo2.png');
+
+    loader.addCompletionListener(function() {
+
+      for (var i = 0, len = logo.length; i < len; i++) {
+        var imagedata = Proton.Util.getImageData(context, logo[i], rect);
+        logoZone.push(new Proton.ImageZone(imagedata, rect.x, rect.y));
+        imageDatas.push(imagedata);
+      }
+      createProton(rect);
+      tick();
+    });
+    loader.start();
+  }
+
+  function createProton() {
+    proton = new Proton;
+    emitter = new Proton.Emitter();
+    emitter.rate = new Proton.Rate(new Proton.Span(30000), new Proton.Span(0.1));
+    emitter.addInitialize(new Proton.Mass(5));
+    emitter.addInitialize(new Proton.P(new Proton.RectZone(rect2.x, rect2.y, rect2.width, rect2.height)));
+
+    emitter.addBehaviour(randomBehaviour);
+    emitter.addBehaviour(customToZoneBehaviour(logoZone[0], logoZone[1]));
+
+    emitter.emit('once');
+    proton.addEmitter(emitter);
+
+    renderer = new Proton.Renderer('pixel', proton, canvas);
+    renderer.createImageData(rect2);
+    renderer.start();
+  }
+
+  function customToZoneBehaviour(zone1, zone2) {
+    return {
+      initialize : function(particle) {
+        particle.R = Math.random() * 3;
+        particle.Angle = Math.random() * Math.PI * 2;
+        particle.speed = Math.random() * (-2) + 1;
+        particle.zones = [zone1.getPosition().clone(), zone2.getPosition().clone()];
+        particle.colors = getColor(particle.zones);
+      },
+
+      applyBehaviour : function(particle) {
+        if (rootIndex % 2 != 0) {
+          particle.v.clear();
+          particle.Angle += particle.speed;
+          var index = (rootIndex % 2 + 1) / 2 - 1;
+          var x = particle.zones[index].x + particle.R * Math.cos(particle.Angle);
+          var y = particle.zones[index].y + particle.R * Math.sin(particle.Angle);
+          particle.p.x += (x - particle.p.x) * 0.05;
+          particle.p.y += (y - particle.p.y) * 0.05;
+          particle.transform.rgb.r = particle.colors[index].r;
+          particle.transform.rgb.g = particle.colors[index].g;
+          particle.transform.rgb.b = particle.colors[index].b;
+        }
+      }
+    }
+
+  }
+
+  function getColor(posArr) {
+    var arr = [];
+    for (var i = 0; i < posArr.length; i++) {
+      arr.push(logoZone[i].getColor(posArr[i].x, posArr[i].y));
+    }
+    return arr;
+  }
+
+  function mouseDownHandler(e) {
+    rootIndex++;
+    if (rootIndex % 2 == 0) {
+      randomBehaviour.reset(30, 30, 0.001);
+    } else {
+      randomBehaviour.reset(0, 0, 0.001);
+      gravityWellBehaviour.reset({
+        x : canvas.width / 2,
+        y : canvas.height / 2
+      }, 0, 0);
+    }
+  }
+
+  function tick() {
+    requestAnimationFrame(tick);
+    proton.update();
+  }
+</script>
+</div>
+
                         <!-- /logo -->
 
                     </div>
@@ -77,7 +233,13 @@
             <div class="site__content">
 
                 <!-- colored-video -->
-                <a href="http://www.youtube.com/embed/fmFjmvwPGKU" class="colored-video video-call"></a>
+                <a class="colored-video video-call">
+                  <video class="movie" autoplay="" loop="">
+                    <!-- <source src="movie.webm" type="video/webm">
+                    <source src="movie.ogg" type="video/ogg"> -->
+                    <source src="fairydust/movie.mp4" type="video/mp4">
+                  </video>
+                </a>
                 <!-- /colored-video -->
 
                 <!-- colored-text -->
@@ -88,7 +250,9 @@
                         <!-- colored-text__show -->
                         <div class="colored-text__show">
 
-                            <h2>Our competences</h2>
+                            <h2>We help you build your startup</h2>
+
+
 
                             <!-- <dl>
                                 <dt>The next-generation <a href="http://coloredcoins.org/" target="_blank">colored coins</a>
@@ -100,12 +264,12 @@
                                 <dd>Includes p2ptrade: a built-in peer-to-peer exchange</dd>
                             </dl> -->
                             <dl>
-                                <dd> Web development </dd>
-                                <dd></dd>
-                                <dd>Code maintainance</dd>
-                                <dd>Training</dd>
+                                <dd> We are your technical expertise. </dd>
+                                <dd> We build your app and provide guidance to get your product to market faster. </dd>
+                                <dd> We bring a personal and effective approach to every project we work on. </dd>
+                                <dd> Tell us about your startup! </dd>
                                 <dt>
-                                  We bring a personal and effective approach to every project we work on.</dt>
+                                  </dt>
                             </dl>
 <!--
                             <a href="#" class="colored-download">download</a>
@@ -149,15 +313,15 @@
                             <div>
 
                                 <!-- instruction-back__video -->
-                                <a href="http://www.youtube.com/embed/XVwanPvNJbc" class="video-call instruction-back__video">
+                                <!-- <a class="video-call instruction-back__video">
                                     <img src="./fairydust/pic1.jpg" alt="">
-                                </a>
+                                </a> -->
                                 <!-- /instruction-back__video -->
 
                                 <!-- instruction-back__video -->
-                                <a href="http://www.youtube.com/embed/gilT96_VFKI" class="video-call instruction-back__video">
+                                <!-- <a class="video-call instruction-back__video">
                                     <img src="./fairydust/pic2.jpg" alt="">
-                                </a>
+                                </a> -->
                                 <!-- /instruction-back__video -->
                             </div>
 
@@ -188,7 +352,7 @@
                             <h2>What we do</h2>
 
                             <dl>
-                                <dd>PROGRAMMING (Confident and professional approach. Are regular community members in Ruby on Rails, Javascript and NodeJs community) </dd>
+                                <dd>PROGRAMMING <br>(Confident and professional approach. Are regular community members in Ruby on Rails, Javascript and NodeJs community) </dd>
                                 <dd>DEPLOYMENT (We build for you an automated and clean deployment process)</dd>
                                 <dd>SCALLING AND PERFORMANCE (Does your app run slow? Long processes are killing your servers? We can provide solutions to your performance and scaling issues)</dd>
                                 <dd>OPEN SOURCE (We believe that you can't be a great developer if you don't give back to the community. We regulary contribute to the open source)</dd>
@@ -355,7 +519,7 @@
                 <span>
                     <span>
                         <span>
-                          <a href="http://www.codingamigos.com"></a>
+                          <a href="http://www.digitalsolopreneur.eu">digitalsolopreneur</a>
                         </span>
                     </span>
                 </span>
@@ -405,7 +569,7 @@
                             <p>More whitepapers and information can be found on the ChromaWay <a href="http://www.chromaway.com/#/resources">resources</a> page.
                             Source code of our colored-coin related projects are on the ChromaWay <a href="https://github.com/chromaway/">GitHub</a></p> -->
 
-                            <a href="guide.html" class="resources__giude">User's guide</a>
+                            <a  class="resources__giude">More Soon</a>
                         </div>
                     </div>
                 </div>
@@ -462,7 +626,7 @@
                             </div>
 
                             <div class="contacts__right">
-                                <p>If you want to get started with your project, please use this e-mail.<a href="https://groups.google.com/group/bitcoinX/" target="_blank">E-mail</a></p>
+                                <p>If you want to get started with your project, please use this e-mail.<a href="mailto:" target="_blank">E-mail</a></p>
                                 <p>To talk about your idea in the group, the best place is our LinkedIn group.
                                 <a href="https://www.linkedin.com/groups?mostRecent=&gid=3889758&trk=my_groups-tile-flipgrp" target="_blank">Discuss</a>
                                 </p>

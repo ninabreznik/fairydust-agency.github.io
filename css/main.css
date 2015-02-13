@@ -77,12 +77,12 @@ a:hover {
     bottom: 75px;
     left: 50%;
     margin-left: -40px;
-    color: #929497;
+    color: #fff;
     display: none;
     z-index: 10;
     overflow: hidden;
     height: 87px;
-    width: 80px;
+    width: 100px;
 }
 .down-btn span{
     position: absolute;
@@ -153,8 +153,11 @@ a:hover {
 .site__menu + .site__page.active {
     top: 0;
 }
-.site__content {
+.site__content, body {
     position: relative;
+    background-image: linear-gradient(rgba(61, 30, 107, 1), rgba(177, 40, 72, 1));
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 /* --------------- /site --------------- */
 
@@ -165,10 +168,16 @@ a:hover {
     top:-115px;
     left: 0;
     height: 115px;
-    background: #fff;
+    background: #1d1f20;
     z-index: 5;
     width: 100%;
 
+}
+.site__menu__logo img{
+  position: absolute;
+  top: -55px;
+  left: 4vw;
+  transform: scale(0.5);
 }
 .site__menu__logo{
     position: absolute;
@@ -185,7 +194,7 @@ a:hover {
     display: inline-block;
     vertical-align: top;
     padding: 0 27px;
-    color: #353c4c;
+    color: #ba36b8;
     font-size: 16px;
     height: 115px;
     font-family: "Source Sans Pro";
@@ -195,7 +204,7 @@ a:hover {
     letter-spacing: 1px;
 }
 .main-menu a.active{
-    color: #ee4d2c;
+    color: #FEBF00;
     cursor: default;
 }
 .main-menu a.active:hover span:after{
@@ -210,7 +219,7 @@ a:hover {
     content: '';
     position: absolute;
     height: 3px;
-    background: #353c4c;
+    background: #FEBF00;
     bottom: -8px;
     left: 0;
     width: 0;
@@ -302,7 +311,7 @@ a:hover {
     font-weight: 400;
 
     padding: 0 20px 0 2%;
-    background: #18a2a2;
+    background: #EE5923;
     z-index: 2;
     display: table;
 }
@@ -319,9 +328,12 @@ a:hover {
     position: absolute;
     top: 0;
     right: 0;
-    background: url("../pic/video.jpg") center no-repeat;
+    /*background: url("../pic/video.jpg") center no-repeat;*/
     background-size: cover;
     z-index: 1;
+}
+.colored-video video {
+  height: 100%;
 }
 .colored-video img{
     display: block;
@@ -340,7 +352,7 @@ a:hover {
 .colored-download{
     color: #fff;
     text-transform: uppercase;
-    background: #ef4e23;
+    background: #F7931D;
     width: 222px;
     height: 63px;
     line-height: 63px;
@@ -358,7 +370,7 @@ a:hover {
     transition: all 0.3s ease;
 }
 .colored-download:hover{
-    background: #ef5d36;
+    background: #F7931D;
 }
 
 .colored-text span{
@@ -390,7 +402,7 @@ a:hover {
 .colored-text dd a{
     text-decoration: none;
 
-    color: #eec84c;
+    color: #FEBF00;
 }
 .colored-text dd a:hover{
     text-decoration: underline;
@@ -399,7 +411,7 @@ a:hover {
 .colored-text dl a{
     text-decoration: none;
 
-    color: #eec84c;
+    color: #FEBF00;
 }
 .colored-text dl a:hover{
     text-decoration: underline;
@@ -452,7 +464,7 @@ a:hover {
     top: 0;
     right: 0;
     width: 50%;
-    background: #18a2a2;
+    background: #FEBF00; /* #ba36b8 */
     font-family: "Source Sans Pro";
     font-size: 18px;
     line-height: 25px;
@@ -465,10 +477,13 @@ a:hover {
     display: table-cell;
     vertical-align: middle;
 }
+.about-text__wrap h2 {
+  /*color: #FEBF00;*/
+}
 .about-text a{
     text-decoration: none;
 
-    color: #eec84c;
+    color: #FEBF00;
 }
 .about-text a:hover{
     text-decoration: underline;
@@ -497,7 +512,7 @@ a:hover {
     margin-bottom: 35px;
 }
 .podlozhka{
-    background: #3b97d2;
+    background: #EE3880;
     position: absolute;
     top: 0;
     left: 0;
@@ -512,7 +527,7 @@ a:hover {
     position: absolute;
     top: 0;
     left: 0;
-    background: #3b97d2;
+    background: #B12848;
     height: 659px;
     width: 100%;
     overflow: hidden;
@@ -543,7 +558,7 @@ a:hover {
     width: 1176px;
     margin: -259px 0 0 -588px;
     z-index: 10;
-    background: #3b97d2;
+    background: #EE3880;
     perspective: 1000px;
 }
 .squeres > div{
@@ -573,14 +588,14 @@ a:hover {
 }
 .squers__item5 > div,
 .squers__item1 > div{
-    background: #328bcb;
+    background: #EE3880;
 }
 .squers__item3 > div{
-    background: #368fcd;
+    background: #EE3880;
 }
 .squers__item2 > div,
 .squers__item4 > div{
-    background: #3287c2;
+    background: #EE3880;
 }
 .squers__item1{
     width: 308px;
@@ -718,7 +733,7 @@ a:hover {
     -moz-transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
-    background: #005382;
+    background: #B12848;
     z-index: -1;
 }
 .download-page__text li .download-btn__hover .back-squere{
@@ -807,7 +822,7 @@ a:hover {
     text-decoration: underline;
 }
 .resources__giude{
-    background: #ff5b3b;
+    background: #BA36B8;
     color: #fff;
     display: block;
     margin: 0 auto;
@@ -828,7 +843,7 @@ a:hover {
 }
 .resources__giude:hover{
     text-decoration: none !important;
-    background: #ef5d36;
+    background: #FFC000;
 }
 .active-shtorka .shtorka-left{
     -moz-transform: rotate(77deg);
@@ -841,7 +856,7 @@ a:hover {
     transform: rotate(-77deg);
 }
 .shtorka-left{
-    background: #3b97d2;
+    background: #B12848;
     position: absolute;
     top: 0;
     left: 0;
@@ -857,7 +872,7 @@ a:hover {
     transform-origin: top right;
 }
 .shtorka-right{
-    background: #3b97d2;
+    background: #B12848;
     position: absolute;
     top: 0;
     right: 0;
@@ -879,7 +894,7 @@ a:hover {
 /* --------------- site__page-fairydust05 --------------- */
 
 .contacts{
-    background: #d05f6b;
+    background: #B12848;
     position: absolute;
     top: 0;
     left: 0;
@@ -946,13 +961,13 @@ a:hover {
 
     text-transform: uppercase;
     letter-spacing: 3px;
-    background: #18a2a2;
+    background: #FFC000;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
 .contacts a:hover{
-    background: #2cc6c2;
+    background: #FFC000;
 }
 
 .contacts > div > div{

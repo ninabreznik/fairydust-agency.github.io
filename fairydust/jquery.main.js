@@ -12,11 +12,9 @@ $(window).on({
 
         var heshPage = window.location.hash.replace("#","");
 
-
         $('.main-menu a ').each( function(){
 
             var curLink = $(this);
-
             if( curLink.text() == heshPage){
 
                 curLink.trigger('click');
@@ -52,7 +50,7 @@ $( function(){
     $(window).on('resize', function(){
 
         var curWidth = $(window).width();
-        
+
         //if (curWidth != windowLoadWidth) { //http://stackoverflow.com/questions/9361968/javascript-resize-event-on-scroll-mobile
 
            if(!(device.mobile() || device.tablet())) { // Infinite reloads
@@ -61,7 +59,7 @@ $( function(){
                 location.reload();
             }
             windowLoadWidth = curWidth;
-            
+
         }
 
     });
@@ -183,8 +181,9 @@ Page.prototype = {
 
                 self.downBtn = $('.down-btn');
                 self.bigLogo = $('.logo');
+                self.fairydust = $('#startpage');
 
-                self.bigLogo.fadeIn(1000, function(){
+                self.fairydust.fadeIn(1000, function(){
                     self.downBtn.fadeIn(1000);
                 });
 
@@ -197,8 +196,11 @@ Page.prototype = {
                     textShow = pageContentNext.find('.colored-text__show'),
                     windW = 0;
 
-
-                self.bigLogo.animate( {
+                var canvas = $('#logoCanvas');
+                canvas.animate({
+                  marginTop: -canvas.height()*2+'px'
+                });
+                self.fairydust.animate( {
                     top: -self.bigLogo.height()
                 }, {
                     easing: 'easeInOutQuad',
@@ -583,6 +585,13 @@ Page.prototype = {
                     textShow = pageContentNext.find('.colored-text__show'),
                     windW = pageContentNext.find( '.site__content' ).width();
 
+                var canvas = $('#logoCanvas');
+                canvas.animate({
+                  marginTop: '0px'
+                }, {
+                    duration: 300,
+                    easing: 'easeOutQuad'
+                } );
                 textShow.fadeTo(500, 0, function(){
                     videoBlokc.animate({
                         right: -windW/2
@@ -998,19 +1007,22 @@ Page.prototype = {
                         var curItem = $( this),
                             newindex;
 
-                        self.menuLnk.removeClass( 'active' );
+                        if (curItem.text() !== 'Blog') {
+                          self.menuLnk.removeClass( 'active' );
 
-                        curItem.addClass('active');
+                          curItem.addClass('active');
 
-                        newindex = self.menuLnk.index( curItem ) + 2;
+                          newindex = self.menuLnk.index( curItem ) + 2;
 
-                        if( newindex > self.activeIndex ){
-                            self.core.moveDown( self.menuLnk.index( curItem ) + 2 );
-                        } else if ( newindex < self.activeIndex ) {
-                            self.core.moveUp( self.menuLnk.index( curItem ) + 2 );
+
+                          if( newindex > self.activeIndex ){
+                              self.core.moveDown( self.menuLnk.index( curItem ) + 2 );
+                          } else if ( newindex < self.activeIndex ) {
+                              self.core.moveUp( self.menuLnk.index( curItem ) + 2 );
+                          }
+
+                          return false;
                         }
-
-                        return false;
                     }
                 } );
 
