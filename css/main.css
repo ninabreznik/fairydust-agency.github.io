@@ -121,6 +121,7 @@ a:hover {
 }
 /* --------------- site --------------- */
 .site {
+    background-image: linear-gradient(rgba(61, 30, 107, 1), rgba(177, 40, 72, 1));
     min-height: 100%;
     overflow: hidden;
     position: relative;
