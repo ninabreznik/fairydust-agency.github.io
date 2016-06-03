@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=1024, user-scalable=no">
 
     <title>fairydust agency</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/font.css">
-    <link rel="stylesheet" href="css/main.css">
+    <!--<link rel="stylesheet" href="css/reset.css">-->
 
     <meta property="og:title" content="fairydust web agency" />
     <meta property="og:site_name" content="fairydust.agency" />
@@ -30,669 +28,87 @@
     <meta name="msapplication-TileImage" content="logo/favicon/mstile-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-    <script src="./fairydust/modernizr-2.6.2.min.js"></script>
-
   </head>
 
   <body>
-    <!-- site -->
-    <div class="site">
-        <span class="show-mobile-menu">show-menu</span>
-        <!-- site__menu -->
-        <div class="site__menu">
-            <a href="#" class="site__menu__logo"><img src="./fairydust/menu-logo.png" width="140" height="200" alt=""></a>
-            <!-- main-menu -->
-            <nav class="main-menu">
-              <a href="#about"><span>What we do</span></a>
-              <a href="#download"><span>Projects</span></a>
-              <a href="#recources"><span>Process</span></a>
-              <a href="#contact"><span>Contact</span></a>
-              <a href="http://blog.fairydust.agency/" target="_blank"><span>Blog</span></a>
-            </nav>
-            <!-- /main-menu -->
-            <!-- <a class="user-guide-btn">AVAILABLE SOON</a> -->
-        </div>
-        <!-- /site__menu -->
-
-
-        <!-- site__page -->
-        <header class="header site__page active">
-
-            <!-- site__content -->
-            <div class="site__content">
-
-                <!-- site__center -->
-                <div class="site__center">
-                    <div>
-
-                        <!-- logo -->
-                        <h1 class="logo" style="visibility:hidden;">
-                          FairyDust We are software consultancy, based in Berlin and we deliver high quality web apps in short timespans - and with style.
-                        </h1>
-<div id="startpage">
-<canvas id="logoCanvas"></canvas>
-<script src="logo/proton-1.0.0.js"></script>
-<script src="logo/PxLoader.js"></script>
-<script src="logo/PxLoaderImage.js"></script>
-<script>
-  var proton;
-  var canvas;
-  var context;
-  var renderer;
-  var logoZone;
-  var emitter;
-  var imageDatas;
-  var rect, rect2;
-  var gravityBehaviour, randomBehaviour, gravityWellBehaviour;
-  var rootIndex = 1;
-
-  Main();
-  function Main() {
-    canvas = document.getElementById("logoCanvas");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    context = canvas.getContext('2d');
-
-    imageDatas = [];
-    rect = new Proton.Rectangle(
-      canvas.width-(canvas.width/1.5),
-      canvas.height-(canvas.height/1.2),
-      canvas.width,
-      canvas.height
-    );
-    rect2 = new Proton.Rectangle(0, 0, rect.width, canvas.height);
-    randomBehaviour = new Proton.RandomDrift(0, 0, 10.05);
-    var rectZone = new Proton.RectZone(0, rect2.y, rect2.width, rect2.height);
-    crossBehaviour = new Proton.CrossZone(rectZone, 'bound');
-    gravityWellBehaviour = new Proton.GravityWell({
-      x : canvas.width / 100,
-      y : canvas.height / 100
-    }, 110, 110);
-
-    document.querySelector('#logoCanvas').addEventListener('click', mouseDownHandler, false);
-    setTimeout(function (){
-      document.querySelector('#logoCanvas').click();
-    }, 500);
-    loadImage();
-  }
-
-
-
-  function loadImage() {
-    logoZone = [];
-    var logo = [];
-    var loader = new PxLoader();
-    logo[0] = loader.addImage('logo/logo2.png');
-    logo[1] = loader.addImage('logo/logo2.png');
-
-    loader.addCompletionListener(function() {
-
-      for (var i = 0, len = logo.length; i < len; i++) {
-        var imagedata = Proton.Util.getImageData(context, logo[i], rect);
-        logoZone.push(new Proton.ImageZone(imagedata, rect.x, rect.y));
-        imageDatas.push(imagedata);
-      }
-      createProton(rect);
-      tick();
-    });
-    loader.start();
-  }
-
-  function createProton() {
-    proton = new Proton;
-    emitter = new Proton.Emitter();
-    emitter.rate = new Proton.Rate(new Proton.Span(30000), new Proton.Span(0.1));
-    emitter.addInitialize(new Proton.Mass(5));
-    emitter.addInitialize(new Proton.P(new Proton.RectZone(rect2.x, rect2.y, rect2.width, rect2.height)));
-
-    emitter.addBehaviour(randomBehaviour);
-    emitter.addBehaviour(customToZoneBehaviour(logoZone[0], logoZone[1]));
-
-    emitter.emit('once');
-    proton.addEmitter(emitter);
-
-    renderer = new Proton.Renderer('pixel', proton, canvas);
-    renderer.createImageData(rect2);
-    renderer.start();
-  }
-
-  function customToZoneBehaviour(zone1, zone2) {
-    return {
-      initialize : function(particle) {
-        particle.R = Math.random() * 3;
-        particle.Angle = Math.random() * Math.PI * 2;
-        particle.speed = Math.random() * (-2) + 1;
-        particle.zones = [zone1.getPosition().clone(), zone2.getPosition().clone()];
-        particle.colors = getColor(particle.zones);
-      },
-
-      applyBehaviour : function(particle) {
-        if (rootIndex % 2 != 0) {
-          particle.v.clear();
-          particle.Angle += particle.speed;
-          var index = (rootIndex % 2 + 1) / 2 - 1;
-          var x = particle.zones[index].x + particle.R * Math.cos(particle.Angle);
-          var y = particle.zones[index].y + particle.R * Math.sin(particle.Angle);
-          particle.p.x += (x - particle.p.x) * 0.05;
-          particle.p.y += (y - particle.p.y) * 0.05;
-          particle.transform.rgb.r = particle.colors[index].r;
-          particle.transform.rgb.g = particle.colors[index].g;
-          particle.transform.rgb.b = particle.colors[index].b;
-        }
-      }
-    }
-
-  }
-
-  function getColor(posArr) {
-    var arr = [];
-    for (var i = 0; i < posArr.length; i++) {
-      arr.push(logoZone[i].getColor(posArr[i].x, posArr[i].y));
-    }
-    return arr;
-  }
-
-  function mouseDownHandler(e) {
-    rootIndex++;
-    if (rootIndex % 2 == 0) {
-      randomBehaviour.reset(30, 30, 0.001);
-    } else {
-      randomBehaviour.reset(0, 0, 0.001);
-      gravityWellBehaviour.reset({
-        x : canvas.width / 2,
-        y : canvas.height / 2
-      }, 0, 0);
-    }
-  }
-
-  function tick() {
-    requestAnimationFrame(tick);
-    proton.update();
-  }
-</script>
-</div>
-
-                        <!-- /logo -->
-
-                    </div>
-                </div>
-                <!-- /site__center -->
-
-
-                <a href="#" class="down-btn">
-                    <span>Discover</span>
-                </a>
-
-            </div>
-            <!-- /site__content -->
-
-        </header>
-        <!-- /site__page -->
-
-        <!-- site__page -->
-        <div class="site__page">
-
-            <!-- site__content -->
-            <div class="site__content">
-
-                <!-- colored-video -->
-                <a class="colored-video video-call">
-                  <video class="movie" autoplay="" loop="">
-                    <!-- <source src="movie.webm" type="video/webm">
-                    <source src="movie.ogg" type="video/ogg"> -->
-                    <source src="fairydust/movie.mp4" type="video/mp4">
-                  </video>
-                </a>
-                <!-- /colored-video -->
+ 
+	<h2>What we do</h2>
 
-                <!-- colored-text -->
-                <div class="colored-text">
+	<dl>
+	<dd>PROGRAMMING <br>(Confident and professional approach. Are regular community members in Ruby on Rails, Javascript and NodeJs community) </dd>
+	<dd>DEPLOYMENT (We build for you an automated and clean deployment process)</dd>
+	<dd>SCALLING AND PERFORMANCE (Does your app run slow? Long processes are killing your servers? We can provide solutions to your performance and scaling issues)</dd>
+	<dd>OPEN SOURCE (We believe that you can't be a great developer if you don't give back to the community. We regulary contribute to the open source)</dd>
+	<dd>RESEARCH (Finding the best solutions is our top priority in every task. We research every problem into depth and make sure we find the best solution for you) </dd>
+	<dd>TRAINING ( We provide trainings for you and your team) </dd>
+	</dl>
 
-                    <div class="cell">
-
-                        <!-- colored-text__show -->
-                        <div class="colored-text__show">
-
-                            <h2>We help you build your startup</h2>
+	<p> We also always care to have enough fresh blood in our team. We offer new opportunities for young developers, specially <a href="http://railsgirlsberlin.de/">Rails Girls</a>.</p>
 
 
-
-                            <!-- <dl>
-                                <dt>The next-generation <a href="http://coloredcoins.org/" target="_blank">colored coins</a>
-                                  platform (formerly known as NGCCC):</dt>
-                                <dd><a href="https://github.com/bitcoinx/ngcccbase/" target="_blank">100% open source</a></dd>
-                                <dd>Runs on a wide range of desktop and server platforms (Windows, Linux Max OS X, ...)</dd>
-                                <dd>Can run in thin client (SPV) mode</dd>
-                                <dd>Flexible, suitable as a platform for custom solutions</dd>
-                                <dd>Includes p2ptrade: a built-in peer-to-peer exchange</dd>
-                            </dl> -->
-                            <dl>
-                                <dd> We are your technical expertise. </dd>
-                                <dd> We build your app and provide guidance to get your product to market faster. </dd>
-                                <dd> We bring a personal and effective approach to every project we work on. </dd>
-                                <dd> Tell us about your startup! </dd>
-                                <dt>
-                                  </dt>
-                            </dl>
-<!--
-                            <a href="#" class="colored-download">download</a>
 
-                            <span>Note: The software is still under development, a beta version is available for testing.</span> -->
+# FairyDust.agency
 
-                        </div>
-                        <!-- /colored-text__show -->
+## HOME
 
-                    </div>
+### **FairyDust**
 
-                </div>
-                <!-- /colored-text -->
+We ARE an international tech community (helping nonprofits and social enterprises leverage the power of digital to amplify the power of people.). We see how governments and nonprofits are struggling because there is a lack of tech professionals who have the knowledge and understand their problems.
+Because of this we personally went out and started to help in our private time. We started with developing Coding amigos to bring together entrepreneurial developers with activistic streak. It has now grown into vibrant collective of high professionals with sense for social responsibility. We understand the pulse of the time and current urgent crisis and we believe this situation can only be changed if organisations get enough professional digital support. Which is the reason that FairyDust.agency exists today.
 
-                <a href="#" class="down-btn down-btn_white"><span>Discover</span></a>
 
+### **Latest work**
 
-            </div>
-            <!-- /site__content -->
+**Wizard Amigos Institute**
+A Berlin based programming school for kids. Wizard Amigos Institute organises workshops that connect kids from different backgrounds through programming wizardry.
 
+**eSova**
+We also work on a platform that we built for the city of Sabac in Serbia in order to reduce high youth unemployment. eSova it's an e-learning platform with educational videos for teaching programming.
 
+**RefugeesWork**
+Is a web platform that help newcomers connect with local organisations.  Locals can help newcomers start their business, offer them volunteering opportunities or hire them as freelance professionals.
 
-        </div>
-        <!-- /site__page -->
+**SquatUp**  https://github.com/SquatUp
+Is an open source incubator for web or mobile projects that build tools and services that transparently help newcomers into self employment.
 
+You can directly donate to support our projects
+ or
+ contract us to get professional digital support if your project contributes to solving one of the urgent topics of our time.
 
-        <!-- site__page -->
-        <div class="site__page" id="about">
+### **Our partners**
+CoUp
+Code for Germany
 
-            <!-- site__content -->
-            <div class="site__content">
+### **Impressum**
+Seraseed Ltd. and Vision Baker Ltd.
 
-                <!-- programma -->
-                <div class="instruction-back">
 
+HOW MUCH DOES IT COST TO BUILD A  MOBILE APP
 
-                    <div class="instruction-back__tabel">
 
-                        <div class="instruction-back__tabel-cell">
 
-                            <div>
 
-                                <!-- instruction-back__video -->
-                                <!-- <a class="video-call instruction-back__video">
-                                    <img src="./fairydust/pic1.jpg" alt="">
-                                </a> -->
-                                <!-- /instruction-back__video -->
 
-                                <!-- instruction-back__video -->
-                                <!-- <a class="video-call instruction-back__video">
-                                    <img src="./fairydust/pic2.jpg" alt="">
-                                </a> -->
-                                <!-- /instruction-back__video -->
-                            </div>
 
-                        </div>
+Some more words from brainstorming:
 
-                    </div>
 
-                </div>
-                <!-- /programma -->
+We became many and are now creating a joint venture that brings the professionalism that we know from our work life into helping organisations amplify their impact.
 
-                <!-- about-text -->
-                <div class="about-text">
+we want to boost this field with more professional solutions. now we want to create a collective project of all these professionals
+that want to
 
-                    <div class="cell">
-                        <!-- about-text__wrap -->
-                        <div class="about-text__wrap">
 
-                            <!-- <h2>About</h2>
+In our free time we built projects that are already helping real people. And this is how we realised how organisations which are working on the front line could make bigger impact if they only had supportive mobile solutions.
 
-                            <dl>
-                                <dt>ChromaWallet functions just like a normal Bitcoin wallet, but additionally it allows one to work with assets which are represented with colored coins, particularly to:</dt>
-                                <dd>Issue securities/tokens of any kind: shares, bonds, tickets, private currencies, <a href="https://en.bitcoin.it/wiki/Smart_Property" target="_blank">smart property</a>, etc.</dd>
-                                <dd>Send and receive them</dd>
-                                <dd>Trade on the build-in decentralized exchange</dd>
-                            </dl>
 
-                            <p>Information about ownership of colored coins is recorded directly in the Bitcoin blockchain, which means it is unforgeable and doesn't rely on any third-party server to keep valid records of ownership. Additionally, we plan to implement Bitcoin's <a href="https://en.bitcoin.it/wiki/Contracts" target="_blank">advanced features</a>, such as escrow, dispute mediation, trustless mixing and so on. Stay tuned!</p> -->
-                            <h2>What we do</h2>
+lack of tech people who understand
+we are tech people and we personally felt called
 
-                            <dl>
-                                <dd>PROGRAMMING <br>(Confident and professional approach. Are regular community members in Ruby on Rails, Javascript and NodeJs community) </dd>
-                                <dd>DEPLOYMENT (We build for you an automated and clean deployment process)</dd>
-                                <dd>SCALLING AND PERFORMANCE (Does your app run slow? Long processes are killing your servers? We can provide solutions to your performance and scaling issues)</dd>
-                                <dd>OPEN SOURCE (We believe that you can't be a great developer if you don't give back to the community. We regulary contribute to the open source)</dd>
-                                <dd>RESEARCH (Finding the best solutions is our top priority in every task. We research every problem into depth and make sure we find the best solution for you) </dd>
-                                <dd>TRAINING ( We provide trainings for you and your team) </dd>
-                            </dl>
 
-                            <p> We also always care to have enough fresh blood in our team. We offer new opportunities for young developers, specially <a href="http://railsgirlsberlin.de/">Rails Girls</a>.</p>
-
-                        </div>
-                        <!-- /about-text__wrap -->
-                    </div>
-
 
+and are personally involved with helping .
 
-
-                </div>
-                <!-- /about-text -->
-
-                <a href="#" class="down-btn down-btn_white"><span>Discover</span></a>
-
-
-            </div>
-            <!-- /site__content -->
-
-
-
-
-        </div>
-        <!-- /site__page -->
-
-
-        <!-- site__page -->
-        <div class="site__page" id="download">
-
-            <!-- site__content -->
-            <div class="site__content">
-
-
-
-
-                <!-- download-page -->
-                <div class="download-page">
-
-                    <!-- squeres -->
-                    <div class="squeres">
-                        <div class="squers__item1" ><div></div></div>
-                        <div class="squers__item2" ><div></div></div>
-                        <div class="squers__item3" ><div></div></div>
-                        <div class="squers__item4" ><div></div></div>
-                        <div class="squers__item5" ><div></div></div>
-                    </div>
-                    <!-- /squeres -->
-
-                    <!-- download-page__text -->
-                    <!-- <div class="download-page__text">
-
-                        <h2>Download ChromaWallet</h2>
-                        <p>Warning: This is an early beta
-                            release, use at your own risk.</p>
-
-                        <ul>
-                            <li>
-                                <span class="download-btn">
-                                    <span>
-                                        <span>
-                                            <span>
-                                              <a href="http://killerstorm.xen.prgmr.com/alex/chromawallet-win32-0.0.7a.zip">Windows</a>
-                                              <a href="http://killerstorm.xen.prgmr.com/alex/chromawallet-win32-0.0.7a.zip.sig">(sig)</a>
-                                            </span>
-                                        </span>
-                                    </span>
-                                    <div class="back-squere"></div>
-
-                                </span>
-                            </li>
-                            <li>
-                                <span class="download-btn">
-                                    <span>
-                                        <span>
-                                            <span>
-                                              <a href="http://killerstorm.xen.prgmr.com/alex/chromawallet-linux-x86_64-0.0.7a.tbz">Linux 64-bit</a>
-                                              <a href="http://killerstorm.xen.prgmr.com/alex/chromawallet-linux-x86_64-0.0.7a.tbz.sig">(sig)</a>
-                                            </span>
-                                        </span>
-                                    </span>
-                                    <div class="back-squere"></div>
-
-                                </span>
-                            </li>
-                            <li>
-                                <span class="download-btn">
-                                    <span>
-                                        <span>
-                                            <span><a href="https://github.com/bitcoinx/ngcccbase"> source code</a></span>
-                                        </span>
-                                    </span>
-                                    <div class="back-squere"></div>
-
-                                </span>
-                            </li>
-                            <li>
-                                <span class="download-btn_disable">
-                                    <span class="disabled">
-                                        <span>
-                                            <span>
-                                                Mac OS X
-                                                 <span>is under development</span>
-                                            </span>
-                                        </span>
-
-                                       <div class="back-squere"></div>
-
-                                    </span>
-                                </span>
-                            </li>
-                        </ul>
-                    </div> -->
-<div class="download-page__text">
-
-    <h2>Recent work</h2>
-    <p>Some of our past and present projects:</p>
-
-    <ul>
-        <li>
-            <span class="download-btn">
-                <span>
-                    <span>
-                        <span>
-                          <a href="http://reinventingengagement.com/" target="_blank">Reinventing Engagement</a>
-                        </span>
-                    </span>
-                </span>
-                <div class="back-squere"></div>
-
-            </span>
-        </li>
-        <li>
-            <span class="download-btn">
-                <span>
-                    <span>
-                        <span>
-                          <a href="http://sosed.biz/delim" target="_blank">Sosed</a>
-                        </span>
-                    </span>
-                </span>
-                <div class="back-squere"></div>
-            </span>
-        </li>
-        <li>
-            <span class="download-btn">
-                <span>
-                    <span>
-                        <span>
-                          <a href="http://www.codingamigos.com" target="_blank">Coding Amigos</a>
-                        </span>
-                    </span>
-                </span>
-                <div class="back-squere"></div>
-            </span>
-        </li>
-        <li>
-            <span class="download-btn">
-                <span>
-                    <span>
-                        <span>
-                          <a href="http://www.digitalsolopreneur.eu" target="_blank">digital<br>solopreneur</a>
-                        </span>
-                    </span>
-                </span>
-                <div class="back-squere"></div>
-            </span>
-        </li>
-    </ul>
-</div>
-                    <!-- /download-page__text -->
-
-
-                </div>
-                <!-- /download-page -->
-
-                <a href="#" class="down-btn down-btn_white"><span>Discover</span></a>
-
-
-
-            </div>
-            <!-- /site__content -->
-
-
-
-
-        </div>
-        <!-- /site__page -->
-
-
-        <!-- site__page -->
-        <div class="site__page" id="recources">
-
-            <!-- site__content -->
-            <div class="site__content">
-
-                <!-- resources -->
-                <div class="resources">
-
-                    <div>
-                        <div>
-                            <h2>Process</h2>
-
-                            <p>Standardized processes for online collaboration with our customers during the project enable us to provide high quality products in short timespans.</p>
-
-                            <!-- <h2>Resources</h2>
-
-                            <p>You can find more general information about colored coins on the <a href="http://coloredcoins.org/about/" target="_blank"> community site</a>. The current version of ChromaWallet implements a protocol described <a href="https://github.com/bitcoinx/ngcccbase/wiki/ChromaToken">here</a>. There is also a document about the <a href="https://github.com/bitcoinx/colored-coin-tools/wiki/colored_coins_intro" target="_blank">theory</a> of colored coins.</p>
-                            <p>More whitepapers and information can be found on the ChromaWay <a href="http://www.chromaway.com/#/resources">resources</a> page.
-                            Source code of our colored-coin related projects are on the ChromaWay <a href="https://github.com/chromaway/">GitHub</a></p> -->
-
-                            <a  class="resources__giude">More Soon</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- /resources -->
-
-                <div class="shtorka-left"></div>
-                <div class="shtorka-right"></div>
-
-                <a href="#" class="down-btn down-btn_white"><span>Discover</span></a>
-
-
-            </div>
-            <!-- /site__content -->
-
-
-        </div>
-        <!-- /site__page -->
-
-
-
-        <!-- site__page -->
-        <div class="site__page" id="contact">
-
-            <!-- site__content -->
-            <div class="site__content">
-
-
-                <!-- contacts -->
-                <div class="contacts">
-
-                    <!-- <div>
-                        <h2>contacts</h2>
-
-                        <div>
-                            <div class="contacts__left">
-                                <p>If you have a problem with ChromaWallet or you want to provide any kind of a feedback, please use our support site.</p>
-                                <a href="http://chromawallet.freshdesk.com/support/home" target="_blank">use support</a>
-                            </div>
-
-                            <div class="contacts__right">
-                                <p>The company ChromaWay handles commercial <a href="http://www.chromaway.com/">Enquiries</a></p>
-                                <p>To talk about ChromaWallet and colored coins the best place is the colored coins google group.
-                                <a href="https://groups.google.com/group/bitcoinX/" target="_blank">Discuss</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div> -->
-                    <div>
-                        <h2>contacts</h2>
-
-                        <div>
-                            <div class="contacts__left">
-                                <p>If you have questions and just need some tech expert to bounce ideas with, you can reach us here.<a href="https://twitter.com/serapath" target="_blank">Tweet</a></p>
-                            </div>
-
-                            <div class="contacts__right">
-                                <p>If you want to get started with your project, please use this e-mail.<a href="mailto:contact@fairydust.agency" target="_blank">E-mail</a></p>
-                                <p>To talk about your idea in the group, the best place is our LinkedIn group.
-                                <a href="https://disqus.com/by/fairydustagency/" target="_blank">Discuss</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /contacts -->
-
-                <div class="contacts__back"></div>
-
-                <a href="#" class="up-btn">Discover</a>
-
-            </div>
-            <!-- /site__content -->
-
-
-
-
-        </div>
-        <!-- /site__page -->
-
-    </div>
-    <!-- /site -->
-
-    <!-- loader -->
-    <div class="loader">
-
-    </div>
-    <!-- /loader -->
-
-    <!-- video -->
-    <div class="videoBlock">
-
-            <iframe width="100%" height="100%" src="" frameborder="0" wmode="Opaque" allowfullscreen=""></iframe>
-
-
-        <div class="videoBlock__close">close</div>
-
-    </div>
-    <!-- /video -->
-
-  <div class="footer">
-
-  </div>
-
-    <script src="./fairydust/jquery-2.1.1.min.js"></script>
-    <script src="./fairydust/quo.js"></script>
-    <script src="./fairydust/device.js"></script>
-    <script src="./fairydust/gl-matrix-min.js"></script>
-    <script src="./fairydust/jquery.main.js"></script>
-
-<!--------------------GOOGLE ANALYTICS---------------------------------->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-59713733-1', 'auto');
-      ga('send', 'pageview');
-
-    </script>
 
   </body>
 </html>
