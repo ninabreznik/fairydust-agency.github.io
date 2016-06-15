@@ -1,11 +1,13 @@
-<!DOCTYPE html5>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=1024, user-scalable=no">
 
-    <title>fairydust agency</title>
-    <!--<link rel="stylesheet" href="css/reset.css">-->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Mobile App Agency - we leverage the power of digital to amplify the power of people">
+    <meta name="author" content="fairydust agency">
 
     <meta property="og:title" content="fairydust web agency" />
     <meta property="og:site_name" content="fairydust.agency" />
@@ -28,87 +30,972 @@
     <meta name="msapplication-TileImage" content="logo/favicon/mstile-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-  </head>
+    <title>fairydust agency</title>
 
-  <body>
- 
-	<h2>What we do</h2>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-	<dl>
-	<dd>PROGRAMMING <br>(Confident and professional approach. Are regular community members in Ruby on Rails, Javascript and NodeJs community) </dd>
-	<dd>DEPLOYMENT (We build for you an automated and clean deployment process)</dd>
-	<dd>SCALLING AND PERFORMANCE (Does your app run slow? Long processes are killing your servers? We can provide solutions to your performance and scaling issues)</dd>
-	<dd>OPEN SOURCE (We believe that you can't be a great developer if you don't give back to the community. We regulary contribute to the open source)</dd>
-	<dd>RESEARCH (Finding the best solutions is our top priority in every task. We research every problem into depth and make sure we find the best solution for you) </dd>
-	<dd>TRAINING ( We provide trainings for you and your team) </dd>
-	</dl>
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Nixie+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Slackey' rel='stylesheet' type='text/css'>
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
-	<p> We also always care to have enough fresh blood in our team. We offer new opportunities for young developers, specially <a href="http://railsgirlsberlin.de/">Rails Girls</a>.</p>
+    <!-- Custom CSS -->
+    <link href="css/grayscale.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <!-- <i class="fa fa-play-circle"></i>  <span class="light">Fairy</span> Dust -->
+                    <svg style="position: relative; top: -10px;" xmlns="http://www.w3.org/2000/svg" style="margin-left: 50px;" version="1.1" class="logo" width="80" height="50" overflow="hidden" viewBox="0 0 200 200">
+                      <g>
+                        <path class="logo__triangle1" fill="#ee5923" d="M0,0 L0,60 L52,30 L0,0"></path>
+                        <path class="logo__triangl2" fill="#f7931d" d="M0,60 L52,30 L52,90"></path>
+                        <path class="logo__triangl3" fill="#ffc000" d="M52,30 L52,90 L104,60"></path>
+                        <path class="logo__triangle4" fill="#ba36b8" d="M52,90 L104,60 L104,120"></path>
+                        <path class="logo__triangle5" fill="#b12848" d="M104,120 L52,90 L52,150"></path>
+                        <path class="logo__triangle6" fill="#ee3880" d="M52,150 L52,90 L0,120"></path>
+                      </g>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#donate">Request or Donate</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" target="_blank" href="https://github.com/fairydust-agency/pricing">Costs to build an app</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <div id="stars" style="position:absolute;"></div>
+
+    <script>
+
+    (function () {
+      'use strict';
+
+      function defined(a, b) {
+        return a != null ? a : b;
+      }
+
+      function Node(garden) {
+        this.garden = garden;
+        this.reset();
+      }
+
+      Node.prototype.reset = function () {
+        var _ref = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+        var x = _ref.x;
+        var y = _ref.y;
+        var vx = _ref.vx;
+        var vy = _ref.vy;
+        var m = _ref.m;
+
+        this.x = defined(x, Math.random() * this.garden.width);
+        this.y = defined(y, Math.random() * this.garden.height);
+        this.vx = defined(vx, Math.random() * 0.5 - 0.25);
+        this.vy = defined(vy, Math.random() * 0.5 - 0.25);
+        this.m = defined(m, Math.random() * 2.5 + 0.5);
+      };
+
+      Node.prototype.addForce = function (force, direction) {
+        this.vx += force * direction.x / this.m;
+        this.vy += force * direction.y / this.m;
+      };
+
+      Node.prototype.distanceTo = function (node) {
+        var x = node.x - this.x;
+        var y = node.y - this.y;
+        var total = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+
+        return { x: x, y: y, total: total };
+      };
+
+      Node.prototype.update = function () {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x > this.garden.width + 50 || this.x < -50 || this.y > this.garden.height + 50 || this.y < -50) {
+          // if node over screen limits - reset to a init position
+          this.reset();
+        }
+      };
+
+      Node.prototype.squaredDistanceTo = function (node) {
+        return (node.x - this.x) * (node.x - this.x) + (node.y - this.y) * (node.y - this.y);
+      };
+
+      Node.prototype.collideTo = function (node) {
+        node.vx = node.m * node.vx / (this.m + node.m) + this.m * this.vx / (this.m + node.m);
+        node.vy = node.m * node.vy / (this.m + node.m) + this.m * this.vy / (this.m + node.m);
+
+        this.reset();
+      };
+
+      Node.prototype.render = function () {
+        this.garden.ctx.beginPath();
+        this.garden.ctx.arc(this.x, this.y, this.getDiameter(), 0, 2 * Math.PI);
+        this.garden.ctx.fill();
+      };
+
+      Node.prototype.getDiameter = function () {
+        return this.m;
+      };
+
+      var pixelRatio$1 = window.devicePixelRatio;
+
+      function NodeGarden(container) {
+        this.nodes = [];
+        this.container = container;
+        this.canvas = document.createElement('canvas');
+        this.ctx = this.canvas.getContext('2d');
+        this.started = false;
+        this.nightmode = false;
+
+        window.addEventListener('mousedown', function (e) {
+          mouseNode.m = 15;
+        });
+
+        window.addEventListener('mouseup', function (e) {
+          mouseNode.m = 0;
+        });
+
+        if (pixelRatio$1 !== 1) {
+          // if retina screen, scale canvas
+          this.canvas.style.transform = 'scale(' + 1 / pixelRatio$1 + ')';
+          this.canvas.style.transformOrigin = '0 0';
+        }
+        this.canvas.id = 'nodegarden';
+
+        // Add mouse node
+        var mouseNode = new Node(this);
+        mouseNode.m = 0;
+
+        mouseNode.update = function () {};
+        mouseNode.reset = function () {};
+        mouseNode.render = function () {};
+        // Move coordinates to unreachable zone
+        mouseNode.x = Number.MAX_SAFE_INTEGER;
+        mouseNode.y = Number.MAX_SAFE_INTEGER;
+
+        document.addEventListener('mousemove', function (e) {
+          mouseNode.x = e.pageX * pixelRatio$1;
+          mouseNode.y = e.pageY * pixelRatio$1;
+        });
+
+        document.documentElement.addEventListener('mouseleave', function (e) {
+          mouseNode.x = Number.MAX_SAFE_INTEGER;
+          mouseNode.y = Number.MAX_SAFE_INTEGER;
+        });
+
+        this.nodes.unshift(mouseNode);
+
+        this.resize();
+        this.container.appendChild(this.canvas);
+      }
+
+      NodeGarden.prototype.start = function () {
+        if (!this.playing) {
+          this.playing = true;
+          this.render(true);
+        }
+      };
+
+      NodeGarden.prototype.stop = function () {
+        if (this.playing) {
+          this.playing = false;
+        }
+      };
+
+      function colorCounter () {
+        var colors = ['#337ab7', '#f7931d', '#ee3880', '#ee5923', '#ffc000', '#ba36b8', '#b12848', '#ee3880']
+        var index = 0
+        return function () {
+          var c = colors[index%colors.length]
+          index++
+          return c
+        }
+      }
+      var getColor = colorCounter()
+      NodeGarden.prototype.resize = function () {
+        this.width = window.innerWidth * pixelRatio$1;
+        this.height = window.innerHeight * pixelRatio$1;
+        this.area = this.width * this.height;
+
+        // calculate nodes needed
+        this.nodes.length = Math.sqrt(this.area) / 25 | 0;
+
+        // set canvas size
+        this.canvas.width = this.width;
+        this.canvas.height = this.height;
+
+        if (this.nightMode) {
+          this.ctx.fillStyle = getColor()
+        } else {
+          this.ctx.fillStyle = getColor()
+        }
+
+        // create nodes
+        for (var i = 0; i < this.nodes.length; i++) {
+          if (this.nodes[i]) {
+            continue;
+          }
+          this.nodes[i] = new Node(this);
+        }
+      };
+
+      NodeGarden.prototype.toggleNightMode = function () {
+        this.nightMode = !this.nightMode;
+        if (this.nightMode) {
+          this.ctx.fillStyle = getColor()
+          document.body.classList.add('nightmode');
+        } else {
+          document.body.classList.remove('nightmode');
+        }
+      };
+
+      NodeGarden.prototype.render = function (start) {
+        var _this = this;
+
+        if (!this.playing) {
+          return;
+        }
+
+        if (start) {
+          requestAnimationFrame(function () {
+            _this.render(true);
+          });
+        }
+
+        // clear canvas
+        this.ctx.clearRect(0, 0, this.width, this.height);
+
+        // update links
+        var nodeA, nodeB;
+        for (var i = 0; i < this.nodes.length - 1; i++) {
+          nodeA = this.nodes[i];
+          for (var j = i + 1; j < this.nodes.length; j++) {
+            nodeB = this.nodes[j];
+            var squaredDistance = nodeA.squaredDistanceTo(nodeB);
+
+            // calculate gravity force
+            var force = 3 * (nodeA.m * nodeB.m) / squaredDistance;
+
+            var opacity = force * 100;
+
+            if (opacity < 0.025) {
+              continue;
+            }
+
+            if (squaredDistance <= (nodeA.m / 2 + nodeB.m / 2) * (nodeA.m / 2 + nodeB.m / 2)) {
+              // collision: remove smaller or equal - never both of them
+              if (nodeA.m <= nodeB.m) {
+                nodeA.collideTo(nodeB);
+              } else {
+                nodeB.collideTo(nodeA);
+              }
+              continue;
+            }
+
+            var distance = nodeA.distanceTo(nodeB);
+
+            // calculate gravity direction
+            var direction = {
+              x: distance.x / distance.total,
+              y: distance.y / distance.total
+            };
+
+            // draw gravity lines
+            this.ctx.beginPath();
+            if (this.nightMode) {
+              this.ctx.strokeStyle = 'rgba(191,191,191,' + (opacity < 1 ? opacity : 1) + ')';
+            } else {
+              this.ctx.strokeStyle = 'rgba(63,63,63,' + (opacity < 1 ? opacity : 1) + ')';
+            }
+            this.ctx.moveTo(nodeA.x, nodeA.y);
+            this.ctx.lineTo(nodeB.x, nodeB.y);
+            this.ctx.stroke();
+
+            nodeA.addForce(force, direction);
+            nodeB.addForce(-force, direction);
+          }
+        }
+        // render and update nodes
+        for (i = 0; i < this.nodes.length; i++) {
+          this.nodes[i].render();
+          this.nodes[i].update();
+        }
+      };
+
+      var pixelRatio = window.devicePixelRatio;
+      var $container = document.getElementById('stars');
+
+      var nodeGarden = new NodeGarden($container);
+
+      // start simulation
+      nodeGarden.start();
+
+      // trigger nightMode automatically
+      var date = new Date();
+      if (date.getHours() > 18 || date.getHours() < 6) {
+        nodeGarden.toggleNightMode();
+      }
+
+      var resetNode = 0;
+
+      $container.addEventListener('click', function (e) {
+
+        nodeGarden.toggleNightMode();
+        resetNode++;
+        if (resetNode > nodeGarden.nodes.length - 1) {
+          resetNode = 1;
+        }
+        nodeGarden.nodes[resetNode].reset({ x: e.pageX * pixelRatio, y: e.pageY * pixelRatio, vx: 0, vy: 0 });
+      });
+
+      window.addEventListener('resize', function () {
+        nodeGarden.resize();
+      });
+    })();
+    </script>
+    <!-- Intro Header -->
+    <header class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2" style="padding-bottom: 130px;">
+                        <h1 class="brand-heading">fairydust</h1>
+                        <p class="intro-text">
+                          We are an international tech community, helping nonprofits and social enterprises leverage the power of digital to amplify the power of people.
+                        </p>
+                        <p>
+                          <a href="#about" class="btn btn-circle page-scroll">
+                              <i class="fa fa-angle-double-down animated"></i>
+                          </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <div style="height:100px"></div>
+            <h1 class="section-heading">About</h1>
+            <h3 class="section-subheading text-muted">
+              We see how governments and nonprofits are struggling because there is a lack of tech professionals who have the knowledge and understand their problems
+              ...
+            </h3>
+            <div style="height:150px"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <ul class="timeline">
+
+
+              <li>
+                <div class="timeline-image">
+                  <img class="img-circle img-responsive" src="img/about/1.jpg" alt="">
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <p>2011-2013</p><br>
+                  </div>
+                  <div class="timeline-body">
+                    <h3 class="subheading dark">
+                      ... first we personally went out to engage in current movements for social change...
+                    </h3>
+                  </div>
+                  <div class="timeline-heading">
+                    <p>Occupy, Open Source, Startups</p>
+                  </div>
+                </div>
+              </li>
+
+
+              <li class="timeline-inverted">
+                <div class="timeline-image">
+                  <img class="img-circle img-responsive" src="img/about/2.jpg" alt="">
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <p>2014 - now</p><br>
+                  </div>
+                  <div class="timeline-body">
+                    <h3 class="subheading dark">
+                      ...after that we started to build a strong community of programmers with activistic streak...
+                    </h3>
+                    <div class="timeline-heading">
+                    <p><a href="http://www.codingamigos.com">Codingamigos</a></p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+
+              <li>
+                <div class="timeline-image">
+                  <img style="transform: scale(.8); border-radius: 0px; position: relative; top: 4px;" class="img-circle img-responsive" src="img/about/3.png" alt="">
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <p>2015 - now</p><br>
+                  </div>
+                  <div class="timeline-body">
+                    <h3 class="subheading dark">
+                      ...our first projects were a programming school for kids and an e-learning platform to help reduce youth unemployment...
+                    </h3>
+                    <div class="timeline-heading">
+                    <p><a href="http://wizardamigosinstitute.github.io" target="_blank">Wizard Amigos Institute</a>, <a href="http://app.esova.rs" target="_blank">eSova</a></p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+
+              <li class="timeline-inverted">
+                <div class="timeline-image">
+                  <img class="img-circle img-responsive" src="img/about/4.jpg" alt="">
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <p>2015 - now</p><br>
+                  </div>
+                  <div class="timeline-body">
+                    <h3 class="subheading dark">
+                      ...as a response to the refugee crisis, we started to develop projects to help newcomers connect with locals through work...
+                    </h3>
+                    <div class="timeline-heading">
+                    <p><a href="http://www.refugeeswork.com" target="_blank">RefugeesWork</a>, <a href="http://github.com/SquatUp" target="_blank">SquatUp</a></p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="timeline-image">
+                  <div class="img-circle img-responsive">
+                    <svg style="width: 100%; height: 100%; position: relative; left: 21px; top: 12px;" xmlns="http://www.w3.org/2000/svg" version="1.1" class="logo" width="100" height="100" overflow="hidden" viewBox="0 0 200 200">
+                      <g>
+                        <path class="logo__triangle1" fill="#ee5923" d="M0,0 L0,60 L52,30 L0,0"></path>
+                        <path class="logo__triangl2" fill="#f7931d" d="M0,60 L52,30 L52,90"></path>
+                        <path class="logo__triangl3" fill="#ffc000" d="M52,30 L52,90 L104,60"></path>
+                        <path class="logo__triangle4" fill="#ba36b8" d="M52,90 L104,60 L104,120"></path>
+                        <path class="logo__triangle5" fill="#b12848" d="M104,120 L52,90 L52,150"></path>
+                        <path class="logo__triangle6" fill="#ee3880" d="M52,150 L52,90 L0,120"></path>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <p>2016 - now</p><br>
+                  </div>
+                  <div class="timeline-body">
+                    <h3 class="subheading dark">
+                      ... our vibrant collective of high professionals grew into an distributed agency
+                      on a mission to help nonprofits & social enterprises solve the urgent crisis
+                      of our time by creating mobile applications for them.
+                    </h3>
+                    <div class="timeline-heading">
+                    <p><a href="#">FairyDust</a></p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="timeline-inverted">
+                <div style="display: flex; align-items: center; justify-content: center;" class="timeline-image" style="color:black;">
+                  <h4>Let's
+                    <br>make it
+                    <br>work!
+                  </h4>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <div style="height:100px"></div>
+    <!-- Portfolio Grid Section -->
+    <section id="portfolio" class="bg-light-gray">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h1 class="section-heading">Apps & Projects we work on voluntarily</h1>
+            <br><br><br>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-sm-6 portfolio-item">
+            <!-- <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal"> -->
+            <a class="portfolio-link" data-toggle="modal">
+              <div class="portfolio-hover">
+                <div class="portfolio-hover-content">
+                  <i class="fa fa-plus fa-3x"></i>
+                </div>
+              </div>
+              <img src="img/portfolio/treehouse.png" class="img-responsive" alt="">
+            </a>
+            <div class="portfolio-caption">
+              <h4><a href="http://www.refugeeswork.com">RefugeesWork</a></h4>
+              <p class="text-muted">Web platform that helps newcomers connect with local organisations.</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 portfolio-item">
+            <!-- <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal"> -->
+            <a class="portfolio-link" data-toggle="modal">
+              <div class="portfolio-hover">
+                <div class="portfolio-hover-content">
+                  <i class="fa fa-plus fa-3x"></i>
+                </div>
+              </div>
+              <img src="img/portfolio/roundicons.png" class="img-responsive" alt="">
+            </a>
+            <div class="portfolio-caption">
+              <h4><a href="http://wizardamigosinstitute.github.io">Wizard Amigos Institute</a></h4>
+              <p class="text-muted">Berlin based programming school for kids.</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 portfolio-item">
+            <!-- <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal"> -->
+            <a class="portfolio-link" data-toggle="modal">
+              <div class="portfolio-hover">
+                <div class="portfolio-hover-content">
+                  <i class="fa fa-plus fa-3x"></i>
+                </div>
+              </div>
+              <img src="img/portfolio/startup-framework.png" class="img-responsive" alt="">
+            </a>
+            <div class="portfolio-caption">
+              <h4><a href="http://app.esova.rs">eSova</a></h4>
+              <p class="text-muted">e-learning platform with educational videos for teaching programming.</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 portfolio-item">
+            <!-- <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal"> -->
+            <a class="portfolio-link" data-toggle="modal">
+              <div class="portfolio-hover">
+                <div class="portfolio-hover-content">
+                  <i class="fa fa-plus fa-3x"></i>
+                </div>
+              </div>
+              <img src="img/portfolio/golden.png" class="img-responsive" alt="">
+            </a>
+            <div class="portfolio-caption">
+              <h4><a href="http://github.com/SquatUp">SquatUp</a></h4>
+              <p class="text-muted">Open Source Incubator around Self Employment</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Modals -->
+    <!-- Use the modals below to showcase details about your portfolio projects! -->
+
+    <!-- Portfolio Modal 1 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl">
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2>RefugeesWork</h2>
+                <p class="item-intro text-muted">Is a web platform that help newcomers connect with local organisations.</p>
+                <img class="img-responsive img-centered" src="img/portfolio/roundicons-free.png" alt="">
+                <p>Locals can help newcomers start their business, offer them volunteering opportunities or hire them as freelance professionals.</p>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portfolio Modal 2 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl">
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+              <div class="modal-body">
+                <h2>Wizard Amigos Institute</h2>
+                <p class="item-intro text-muted">A Berlin based programming school for kids.</p>
+                <img class="img-responsive img-centered" src="img/portfolio/startup-framework-preview.png" alt="">
+                <p>iWizard Amigos Institute organises workshops that connect kids from different backgrounds through programming wizardry.</p>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portfolio Modal 3 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl">
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2>eSova</h2>
+                <p class="item-intro text-muted">An e-learning platform with educational videos for teaching programming.</p>
+                <img class="img-responsive img-centered" src="img/portfolio/treehouse-preview.png" alt="">
+                <p>We also work on a platform that we built for the city of Sabac in Serbia in order to reduce high youth unemployment. eSova</p>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portfolio Modal 4 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl">
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2>SquatUp</h2>
+                <p class="item-intro text-muted">Open Source Incubator around Self Employment</p>
+                <img class="img-responsive img-centered" src="img/portfolio/golden-preview.png" alt="">
+                <p>Is an open source incubator for web or mobile projects that build tools and services that transparently help newcomers into self employment.</p>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!--
+    SquatUp
+    Transparently helping newcomers into self employment
+
+    Whe we started the project?
+    ...
+
+    What does it do?
+    - gitter
+    - app, ....
+
+    How can you help?
+    - Donate
+    - Contribute
+    - Connect your project
+ -->
 
 
 
-# FairyDust.agency
+    <!-- supporters section -->
+    <section id="supporters" class="bg-light-gray download-section" style="position: relative;">
+      <div id="map" style="position:absolute; height: 100%; top:0px;"></div>
+      <div class="container" style="width: 80%;">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h1 class="section-heading">Supporters</h1>
+            <br><br><br>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 col-sm-6 portfolio-item">
+            <a href="http://www.codingamigos.com" target="_blank">
+              <img style="padding-top: 20%;" src="img/supporters/codingamigos.png" class="img-responsive" alt="">
+            </a>
+          </div>
+          <div class="col-md-3 col-sm-6 portfolio-item">
+            <a href="http://co-up.de" target="_blank">
+              <img style="padding-top: 20%;" src="img/supporters/coup.svg" class="img-responsive" alt="">
+            </a>
+          </div>
+          <div class="col-md-3 col-sm-6 portfolio-item">
+            <a href="http://zweidesign.co" target="_blank">
+              <img src="img/supporters/zweidesign.png" class="img-responsive" alt="">
+            </a>
+          </div>
+          <div class="col-md-3 col-sm-6 portfolio-item">
+            <a href="http://codefor.de/" target="_blank">
+              <img src="img/supporters/codefor.svg" class="img-responsive" alt="">
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-## HOME
+    <!-- Donate Section -->
+    <section id="donate" class="content-section text-center">
+        <div>
+            <div class="container">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h1>Donate</h1>
+                    <p>You can directly support our projects or...</p>
+<!-- https://gratipay.com/
+https://www.donorhut.com/pricing
+http://coverrme.com/howitworks
+http://donate.ly/pricing/
+https://flattr.com/
+https://www.paypal.com/webapps/mpp/get-started/create-recurring-donation-button -->
+                    <!-- <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Donate Now</a> -->
+                </div>
+            </div>
+        </div>
+        <div style="height:150px;"></div>
+    </section>
 
-### **FairyDust**
+    <!-- Services Section -->
+    <section id="contracting" class="bg-light-gray ">
+      <div class="container">
+        <div class="row">
+        <h1 class="section-heading  text-center">Ask for a proposal</h1>
+        <hr class="primary" style="width: 80%;">
+        <br>
+      </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box">
+              <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
+              <h3>Mobile App Development</h3>
+              <p class="text-muted">Conceptualizing and crafting of high quality mobile apps</p>
+              <br>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box">
+              <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
+              <h3>Maintainance</h3>
+              <p class="text-muted">Continuous delivery of updates for your audience</p>
+              <br>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box">
+              <i class="fa fa-4x fa-newspaper-o text-primary sr-icons"></i>
+              <h3>Promotional Strategy</h3>
+              <p class="text-muted">Strategy to integrate onboarding of users with app development</p>
+              <br>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box">
+              <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
+              <h3>Made with Love</h3>
+              <p class="text-muted">We are highly passionate about the projects we accept</p>
+              <br>
+            </div>
+          </div>
+        </div>
+        <h4 class=" text-center" style="width:50%; margin: 0 auto;">
+          If your project contributes to solving one of the urgent topics of our time, you can contract us to get professional digital support.
+        </h4>
+        <br><br><br>
+        <h4 class="dark text-center" style="width:50%; margin: 0 auto;">
+          Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!
+        </h4>
+        <br><br><br>
+        <div class="col-lg-4 col-lg-offset-2 text-center">
+            <i class="fa fa-phone fa-3x sr-contact"></i>
+            <p>+49 157 75 50 44 65</p>
+        </div>
+        <div class="col-lg-4 text-center">
+            <i class="fa fa-envelope-o fa-3x sr-contact"></i>
+            <p><a class="contact" href="mailto:contact@fairydust.agency">contact@fairydust.agency</a></p>
+        </div>
+        <!-- <ul class="list-inline banner-social-buttons">
+            <li>
+                <a href="https://twitter.com/fairydustagency" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+            </li>
+            <li>
+                <a href="https://github.com/fairydust-agency/" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+            </li>
+            <li>
+                <a href="http://fairydust.agency/" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Website</span></a>
+            </li>
+        </ul> -->
+      </div>
+      <div style="height:100px;"></div>
+    </section>
 
-We ARE an international tech community (helping nonprofits and social enterprises leverage the power of digital to amplify the power of people.). We see how governments and nonprofits are struggling because there is a lack of tech professionals who have the knowledge and understand their problems.
-Because of this we personally went out and started to help in our private time. We started with developing Coding amigos to bring together entrepreneurial developers with activistic streak. It has now grown into vibrant collective of high professionals with sense for social responsibility. We understand the pulse of the time and current urgent crisis and we believe this situation can only be changed if organisations get enough professional digital support. Which is the reason that FairyDust.agency exists today.
+
+    <!-- Impressum Section -->
+    <section id="impressum">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h1 class="section-heading">Impressum</h1>
+            <h3 class="section-subheading text-muted">Investors & Sponsors behind our app</h3>
+            <br><br>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="team-member" style="min-width: 350px;">
+              <img src="img/team/alex.jpg" class="img-responsive" alt="">
+              <h4>Alexander Praetorius</h4>
+              <p class="text-muted">
+                Investor & Managing Director
+              </p>
+              <ul class="list-inline social-buttons">
+                <li><a href="http://twitter.de/serapath"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li><a href="http://facebook.com/serapath"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li><a href="https://www.linkedin.com/in/alexander-praetorius-9355b751"><i class="fa fa-linkedin"></i></a>
+                </li>
+              </ul>
+              <p class="text-muted">
+                Sole Owner of Micro Holding<br>
+                <a href="https://beta.companieshouse.gov.uk/company/09657159" target="_blank">Seraseed Ltd.</a><br>
+                Trevissome Park<br>
+                Blackwater<br>
+                Truro<br>
+                TR4 8UN
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4"></div>
+          <div class="col-sm-4">
+            <div class="team-member" style="min-width: 350px;">
+              <img src="img/team/nina.jpg" class="img-responsive" alt="">
+              <h4>Nina Breznik</h4>
+              <p class="text-muted">
+                Investor & Managing Director
+              </p>
+              <ul class="list-inline social-buttons">
+                <li><a href="https://twitter.com/ninabreznik"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li><a href="https://www.facebook.com/breznik.nina"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li><a href="https://www.linkedin.com/in/ninabreznik"><i class="fa fa-linkedin"></i></a>
+                </li>
+              </ul>
+              <p class="text-muted">
+                Sole Owner of Micro Holding<br>
+                <a href="https://beta.companieshouse.gov.uk/company/09657161" target="_blank">Vision Baker Ltd.</a><br>
+                Chynoweth House<br>
+                Blackwater<br>
+                Truro<br>
+                TR4 8UN
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
 
-### **Latest work**
+    <!-- Footer -->
+    <!-- <footer>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                  <ul class="list-inline quicklinks">
+                      <li><a href="#">Privacy Policy</a>
+                      </li>
+                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                      <li><a href="#">Terms of Use</a>
+                      </li>
+                  </ul>
+                </div>
+                <div class="col-md-4">
+                </div>
+            </div>
+        </div>
+    </footer> -->
 
-**Wizard Amigos Institute**
-A Berlin based programming school for kids. Wizard Amigos Institute organises workshops that connect kids from different backgrounds through programming wizardry.
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
 
-**eSova**
-We also work on a platform that we built for the city of Sabac in Serbia in order to reduce high youth unemployment. eSova it's an e-learning platform with educational videos for teaching programming.
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
-**RefugeesWork**
-Is a web platform that help newcomers connect with local organisations.  Locals can help newcomers start their business, offer them volunteering opportunities or hire them as freelance professionals.
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
 
-**SquatUp**  https://github.com/SquatUp
-Is an open source incubator for web or mobile projects that build tools and services that transparently help newcomers into self employment.
+    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
 
-You can directly donate to support our projects
- or
- contract us to get professional digital support if your project contributes to solving one of the urgent topics of our time.
+    <!-- Custom Theme JavaScript -->
+    <script src="js/grayscale.js"></script>
 
-### **Our partners**
-CoUp
-Code for Germany
+</body>
 
-### **Impressum**
-Seraseed Ltd. and Vision Baker Ltd.
-
-
-HOW MUCH DOES IT COST TO BUILD A  MOBILE APP
-
-
-
-
-
-
-Some more words from brainstorming:
-
-
-We became many and are now creating a joint venture that brings the professionalism that we know from our work life into helping organisations amplify their impact.
-
-we want to boost this field with more professional solutions. now we want to create a collective project of all these professionals
-that want to
-
-
-In our free time we built projects that are already helping real people. And this is how we realised how organisations which are working on the front line could make bigger impact if they only had supportive mobile solutions.
-
-
-lack of tech people who understand
-we are tech people and we personally felt called
-
-
-
-and are personally involved with helping .
-
-
-  </body>
 </html>

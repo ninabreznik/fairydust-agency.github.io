@@ -2,5 +2,8 @@
 
 Fairydust Ltd. Website
 
-* [![Stories in Ready](https://badge.waffle.io/fairydust-agency/fairydust-agency.github.io.png?label=ready&title=Ready)](https://waffle.io/fairydust-agency/fairydust-agency.github.io)
-* [![Join the chat at https://gitter.im/fairydust-agency/fairydust-agency.github.io](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fairydust-agency/fairydust-agency.github.io?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+## Contribute
+
+* `npm install watch-less -g`
+* `watch-less --output=css/ --extension=.css --directory=less/ --ignore=less/variables.less --ignore=less/mixins.less --optimization=2`

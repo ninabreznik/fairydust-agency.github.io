@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="margin-left: 50px;" version="1.1" class="logo" width="800" height="500" overflow="hidden" viewBox="0 0 800 500">
+  <g>
+    <path class="logo__triangle1" fill="#ee5923" d="M0,0 L0,60 L52,30 L0,0"></path>
+    <path class="logo__triangl2" fill="#f7931d" d="M0,60 L52,30 L52,90"></path>
+    <path class="logo__triangl3" fill="#ffc000" d="M52,30 L52,90 L104,60"></path>
+    <path class="logo__triangle4" fill="#ba36b8" d="M52,90 L104,60 L104,120"></path>
+    <path class="logo__triangle5" fill="#b12848" d="M104,120 L52,90 L52,150"></path>
+    <path class="logo__triangle6" fill="#ee3880" d="M52,150 L52,90 L0,120"></path>
+  </g>
+</svg>
